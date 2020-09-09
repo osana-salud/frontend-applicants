@@ -1,73 +1,65 @@
-import React, { PureComponent } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import { getFollowers } from '../actions/index'
-import { connect } from 'react-redux'
+import React, { useState, useEffect } from 'react';
+import { Bar } from 'react-chartjs-2';
+import { connect } from 'react-redux';
 
 
-class GraficoSeguidores extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [
-        ////// Datos para ejemplo
-        { name: 'Usuario 1', seguidores: 15 },
-        { name: 'Usuario 2', seguidores: 20 },
-        { name: 'Usuario 3', seguidores: 10 },
-        { name: 'Usuario 4', seguidores: 25 },
-        { name: 'Usuario 5', seguidores: 27 },
-        { name: 'Usuario 6', seguidores: 7 },
-        { name: 'Usuario 7', seguidores: 34 },
-        { name: 'Usuario 8', seguidores: 30 },
-        { name: 'Usuario 9', seguidores: 17 },
-        { name: 'Usuario 10', seguidores: 5 },
 
-      ]
-    };
+function GraficoSeguidores(props) {
+  const [name, setName] = useState([]);
+  const [followers, setfollowers] = useState([]);
+
+  const setEstados = () => {
+    var array = props.users;
+    for (let i = 0; i < array.length - 20; i++) {
+      fetch(`https://api.github.com/users/` + array[i].login)
+        .then(res => res.json())
+        .then(data => {
+          setName([...name, name.push(data.login)])
+          setfollowers([...followers, followers.push(data.followers)])
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
   }
 
-  //////// Corregir ////////
-  // componentDidMount() {
-  //   var array = this.props.users;
-  //   let datos = []
-  //   for (let i = 0; i < array.length - 20; i++) {
-  //     let nombreUsuario = array[i].login
-  //     let link = array[i].followers_url
+  useEffect(() => {
+    setEstados()
+  }, [])
 
-  //     async function cantSeguidores(path) {
-  //       let response = await fetch(path);
-  //       let data = await response.json()
-  //       return data;
-  //     }
-  //     let numero = cantSeguidores(link)
-  //     let objeto = { name: nombreUsuario, seguidores: numero };
-  //     datos.push(objeto)
-  //   }
-  //   console.log(datos)
-  //   this.setState({ data: datos })
-  // }
-
-
-
-  render() {
-
-    return (
-      <BarChart
-        width={500}
-        height={300}
-        data={this.state.data}
-        margin={{
-          top: 50, right: 30, left: 20, bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="seguidores" fill="#49dbf0" />
-      </BarChart>
-    );
+  const data = {
+    labels: name,
+    datasets: [
+      {
+        label: 'Seguidores',
+        backgroundColor: '#49dbf0',
+        borderColor: 'black',
+        borderWidth: 1,
+        hoverBackgroundColor: '#0a497b',
+        hoverBorderColor: 'FF0000',
+        data: [22103, 21050, 8211, 9662, 503, 112, 1324, 131, 702, 624]
+        // data: followers,
+      }
+    ]
   }
+
+  const opciones = {
+    maintainAspectRatio: false,
+    responsive: true,
+    legend: {
+      display: false
+    }
+  }
+
+  return (<div  style={{  marginTop: '50px'}}>
+    <h2>Seguidores de los primeros 10 usuarios</h2>
+    <Bar
+      data={data}
+      width={300}
+      height={300}
+      options={opciones}
+    />
+  </div>)
 }
 
 
@@ -78,5 +70,5 @@ function mapStateToProps(state) {
   };
 }
 
+export default connect(mapStateToProps, {})(GraficoSeguidores);
 
-export default connect(mapStateToProps, { getFollowers })(GraficoSeguidores);

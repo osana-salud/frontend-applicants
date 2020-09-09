@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import MaterialTable from 'material-table'
 import { makeStyles } from '@material-ui/core/styles';
 import { Modal } from '@material-ui/core'
-import DetailsUser from './DetailsUser'
+import CardUser from './CardUser'
 import { forwardRef } from 'react';
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowUpward from '@material-ui/icons/ArrowUpward';
@@ -18,9 +18,6 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import AssignmentIcon from '@material-ui/icons/Assignment';
-
-// Redux
-import { getAllUsers } from '../actions/index'
 import { connect } from 'react-redux'
 
 
@@ -44,13 +41,14 @@ const tableIcons = {
 };
 
 const useStyles = makeStyles((theme) => ({
-  modal: {
+  modal: 
+  {
     position: 'absolute',
     width: 450,
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+    padding: theme.spacing(4, 8, 4),
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)'
@@ -58,14 +56,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function TablasDeCohortes(props) {
+function ListadoUsuarios(props) {
   const [user, setUser] = useState();
   const [modalDetails, setModalDetails] = useState(false);
-  
-  useEffect(() => {
-    props.getAllUsers()
-  }, []);
-  
+
+
   let columns = [
     { title: 'ID', field: 'id' },
     { title: 'User', field: 'login' },
@@ -82,21 +77,19 @@ function TablasDeCohortes(props) {
     abrirCerrarModalDetails()
   }
 
-
   const bodyDetails = (
     <div className={classes.modal}>
-      <DetailsUser
+      <CardUser
         abrirCerrarModalDetails={abrirCerrarModalDetails}
         user={user}
       />
     </div>
   )
 
-
   return (
     <div>
       <MaterialTable
-        title="Listado de Usuarios"
+        title=""
         columns={columns}
         data={props.users}
         icons={tableIcons}
@@ -124,11 +117,11 @@ function TablasDeCohortes(props) {
           }
         }
       />
-      <Modal
-        open={modalDetails}
-        onClose={abrirCerrarModalDetails}>
-        {bodyDetails}
-      </Modal>
+        <Modal
+          open={modalDetails}
+          onClose={abrirCerrarModalDetails}>
+          {bodyDetails}
+        </Modal>
     </div>
   )
 }
@@ -142,4 +135,4 @@ function mapStateToProps(state) {
 
 
 
-export default connect(mapStateToProps, { getAllUsers })(TablasDeCohortes);
+export default connect(mapStateToProps, {})(ListadoUsuarios);

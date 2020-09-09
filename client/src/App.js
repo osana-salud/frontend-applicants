@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store'
-import DashboardAdmin from './components/DashboardAdmin'
+import Dashboard from './components/Dashboard'
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
         <BrowserRouter>
             <Route
             path='/'
-            component={DashboardAdmin}
+            component={Dashboard}
           />
         </BrowserRouter>
       </Provider>

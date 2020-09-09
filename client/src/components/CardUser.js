@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -10,9 +10,10 @@ import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import CloseIcon from '@material-ui/icons/Close';
 import GroupIcon from '@material-ui/icons/Group';
-import FolderIcon from '@material-ui/icons/Folder';
-import { getFollowers, getFollowing, getRepos } from '../actions/index'
-import { connect } from 'react-redux'
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import Link from '@material-ui/core/Link';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -29,11 +30,28 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function DetailsUser(props) {
+export default function CardUser(props) {
+  const [name, setName] = useState();
+  const [login, setLogin] = useState();
+  const [avatar, setAvatar] = useState();
+  const [followers, setFollowers] = useState();
+  const [following, setFollowing] = useState();
+  const [location, setLocation] = useState();
+  const [github, setGithub] = useState();
+
+
   useEffect(() => {
-    props.getFollowers(props.user.followers_url)
-    props.getFollowing(props.user.login)
-    props.getRepos(props.user.repos_url)
+    fetch(`https://api.github.com/users/${props.user.login}`)
+      .then(res => res.json())
+      .then(data => {
+        setName(data.name)
+        setLogin(data.login)
+        setAvatar(data.avatar_url)
+        setFollowers(data.followers)
+        setFollowing(data.following)
+        setLocation(data.location)
+        setGithub(data.html_url)
+      })
   }, []);
 
   const classes = useStyles();
@@ -42,51 +60,43 @@ function DetailsUser(props) {
     <Card className={classes.root}>
       <CardHeader className={classes.header}
         avatar={
-          <Avatar src={props.user.avatar_url} />
+          <Avatar src={avatar} />
         }
         action={
           <IconButton onClick={props.abrirCerrarModalDetails}>
             <CloseIcon />
           </IconButton>
         }
-        title={props.user.login}
-        subheader={props.user.id}
+        title={name}
+        subheader={login}
       />
       <CardMedia className={classes.media}
-        image={props.user.avatar_url}
+        image={avatar}
       />
       <CardContent>
 
         <Typography variant="body1" color="textSecondary" component="p">
           <IconButton>
+            <LocationOnIcon />
+          </IconButton>
+        Ubicación: {location} <br></br>
+          <IconButton>
             <GroupIcon />
           </IconButton>
-          Seguidores: {props.followers.length} <br></br>
+        Seguidores: {followers} <br></br>
           <IconButton>
             <FavoriteIcon />
           </IconButton>
-          Seguidos: {props.following.length} <br></br>
+        Seguidos: {following} <br></br>
           <IconButton>
-            <FolderIcon />
+            <GitHubIcon />
           </IconButton>
-          Repositorios: {props.repos.length} <br></br>
+          <Link color="inherit" href={github}>
+            Github
+          </Link>
         </Typography>
 
       </CardContent>
     </Card>
   );
 }
-
-
-function mapStateToProps(state) {
-  return {
-    ...state,
-    followers: state.followers,
-    following: state.following,
-    repos: state.repos
-  };
-}
-
-
-
-export default connect(mapStateToProps, { getFollowers, getFollowing, getRepos })(DetailsUser);

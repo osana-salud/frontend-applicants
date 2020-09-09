@@ -1,10 +1,7 @@
-import { GET_ALL_USERS, GET_FOLLOWERS, GET_FOLLOWING, GET_REPOS } from '../actions';
+import { GET_ALL_USERS } from '../actions';
 
 const initialState = {
     users: [],
-    followers: [],
-    following: [],
-    repos: [],
 };
 
 
@@ -16,21 +13,6 @@ const reducerGitHub = (state = initialState, action) => {
             return {
                 ...state,
                 users: action.payload
-            };
-        case GET_FOLLOWERS:
-            return {
-                ...state,
-                followers: action.payload
-            };
-        case GET_FOLLOWING:
-            return {
-                ...state,
-                following: action.payload
-            };
-        case GET_REPOS:
-            return {
-                ...state,
-                repos: action.payload
             };
 
         default:

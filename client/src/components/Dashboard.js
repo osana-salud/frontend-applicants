@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -8,7 +8,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import TablasDeUsuarios from './TablasDeUsuarios'
+import ListadoUsuarios from './ListadoUsuarios'
 import GraficoSeguidores from './GraficoSeguidores'
 import Container from '@material-ui/core/Container';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -18,7 +18,12 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import PeopleIcon from '@material-ui/icons/People';
+import ListIcon from '@material-ui/icons/List';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import BusquedaUsuario from './BusquedaUsuario'
+
+import { getAllUsers } from '../actions/index'
+import { connect } from 'react-redux'
 
 
 const drawerWidth = 240;
@@ -103,14 +108,27 @@ const useStyles = makeStyles((theme) => ({
   link: {
     textDecoration: 'none',
     color: theme.palette.text.primary
+  },
+  welcome: {
+    margin: '100px',
+    display: 'flex',
+    justifyContent: 'center',
+
   }
 }));
 
-export default function Dashboard(props) {
+function Dashboard(props) {
   const [open, setOpen] = React.useState(true);
 
+  useEffect(() => {
+    props.getAllUsers()
+  }, []);
+  
+  
   const handleDrawerOpen = () => { setOpen(true); };
   const handleDrawerClose = () => { setOpen(false); };
+
+
 
   const classes = useStyles();
 
@@ -154,9 +172,9 @@ export default function Dashboard(props) {
             <Link to='/users' className={classes.link}>
               <ListItem button>
                 <ListItemIcon>
-                  <PeopleIcon />
+                  <ListIcon />
                 </ListItemIcon>
-                <ListItemText primary="Usuarios" />
+                <ListItemText primary="Listado" />
               </ListItem>
             </Link>
 
@@ -168,16 +186,36 @@ export default function Dashboard(props) {
                 <ListItemText primary="Seguidores" />
               </ListItem>
             </Link>
+
+            <Link to='/user' className={classes.link}>
+              <ListItem button>
+                <ListItemIcon>
+                  <GitHubIcon />
+                </ListItemIcon>
+                <ListItemText primary="Búsqueda" />
+              </ListItem>
+            </Link>
+
           </div>
 
         </Drawer>
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
+
           <Switch>
+
+            <Route exact path="/">
+              <Container>
+              <div className={classes.welcome}>
+                <img alt='' width='30%' height='30%'
+                  src='https://camo.githubusercontent.com/f991b3432f988f2fe400e8134cdbeccc72d3e668/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f646576706f73742f696d6167652f66657463682f732d2d3373526c393931582d2d2f68747470733a2f2f6769746875622e636f6d2f6e70656e7472656c2f6f63746f636c697070792f626c6f622f6d61737465722f676966732f74656e7461636c65732e67696625334672617725334474727565'/>
+              </div>
+              </Container>
+            </Route>
 
             <Route exact path="/users">
               <Container>
-                <TablasDeUsuarios />
+                <ListadoUsuarios />
               </Container>
             </Route>
 
@@ -187,9 +225,23 @@ export default function Dashboard(props) {
               </Container>
             </Route>
 
+            <Route exact path="/user">
+              <Container>
+                <BusquedaUsuario />
+              </Container>
+            </Route>
+
           </Switch>
         </main>
       </div>
     </BrowserRouter>
   );
 }
+
+function mapStateToProps(state) {
+  return { };
+}
+
+
+
+export default connect(mapStateToProps, { getAllUsers })(Dashboard);
