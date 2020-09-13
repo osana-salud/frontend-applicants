@@ -1,0 +1,13 @@
+.home {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #e9ecea;
+}
+
+.main-container {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
