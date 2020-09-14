@@ -29,23 +29,19 @@
 </template>
 
 <script>
-import { getters } from "@/store";
+import { getters, actions } from "@/store";
 
 export default {
   name: "UsersList",
-  data() {
-    return {
-      listOfUsers: [],
-    };
-  },
   computed: {
     ...getters,
   },
   methods: {
+    ...actions,
     handleClick(e) {
       this.$router.push(`/user/${e}`);
-    },
-  },
+    }
+  }
 };
 </script>
 

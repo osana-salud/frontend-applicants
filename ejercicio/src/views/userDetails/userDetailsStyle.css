@@ -8,17 +8,37 @@
 }
 
 .top-bar {
+  position: relative;
   width: 100%;
-  padding-top: 18px;
   height: 90px;
   background-color: #8c5e58;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.goback-icon {
+  position: absolute;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.goback-icon:hover {
+  cursor: pointer;
+}
+
+.username-topbar {
+  color: #FFF;
+  font-size: 30px;
+  font-weight: 300;
 }
 
 .user-details-container {
+  padding: 20px;
   margin-top: 100px;
   display: flex;
+  align-items: center;
   box-shadow: 2px 2px 5px 2px #ddd;
   border-radius: 5px;
   overflow: hidden;
@@ -26,17 +46,22 @@
 }
 
 .img-container {
-  width: 50%;
+  height: 100%;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .img-container img {
   height: auto;
-  width: 250px;
+  width: 100%;
 }
 
 .details-container {
   width: 100%;
-  padding: 0 10px;
+  height: 100%;
+  margin-left: 20px;
 }
 
 .username {
@@ -45,9 +70,18 @@
   font-weight: bolder;
 }
 
-.user-detail {
-  margin-bottom: 15px;
+.user-detail-title {
+  text-decoration: underline;
   font-size: 20px;
+  font-weight: 500;
+  color: #462e2b;
+  overflow-wrap: break-word;
+}
+
+.user-info {
+  margin: 5px 0 15px;
+  font-size-adjust: 15px;
+  color: #462e2b;
   overflow-wrap: break-word;
 }
 
@@ -67,11 +101,26 @@
 }
 
 @media (max-width: 400px) {
+  .goback-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .username-topbar {
+    font-size: 25px;
+  }
+
   .user-details-container {
     width: 90%;
+    margin-top: 20px;
   }
 
   img {
     width: 100%
+  }
+
+  .details-container {
+    margin: auto;
+    padding: 10px;
   }
 }

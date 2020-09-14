@@ -1,6 +1,6 @@
 .table-container {
   background-color: #FFF7F8;
-  font-family: 'Roboto' sans-serif;
+  font-family: 'Roboto', sans-serif;
   width: 500px;
   box-shadow: 2px 2px 5px 2px #ddd;
   border-radius: 5px;
@@ -55,4 +55,21 @@ tr:hover {
 img {
   width: 40px;
   height: 40px;
+}
+
+@media (max-width: 400px) {
+  .table-container {
+    margin: 30px 0;
+    width: 95%;
+  }
+
+  table td {
+    padding: 5px;
+    font-size: 15px;
+  }
+
+  .img-container, img {
+    width: 30px;
+    height: 30px;
+  }  
 }
