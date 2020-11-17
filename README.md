@@ -8,7 +8,7 @@ El presente documento define un ejercicio práctico y las condiciones de evaluac
 
 ## Modo de evaluación
 
-El desafío está pensado para resolverse en un máximo de **4 (cuatro) horas** y el postulante dispondrá de **3 (tres) días**, desde el momento de su notificación, para poder enviar su resolución.
+El desafío está pensado para resolverse en un máximo de **3 (tres) horas** por lo que recomendamos emplear como máximo ese tiempo y enviar todo lo que pueda para su evaluación.
 
 Una vez realizada la entrega, coordinaremos un llamado para analizar algunos aspectos sobre la metodología de trabajo, entre otros.
 
@@ -17,26 +17,24 @@ Haremos especial hincapié en lo siguiente:
   * Creatividad para resolver los requerimientos
   * Metodología de trabajo
   * Calidad del código (estructura y buenas prácticas)
-  * Tiempo de resolución
+  * Familiaridad con Frameworks y plataformas de desarrollo.
 
 ## Notas
-
-No es necesario que finalice todo el proyecto para realizar el envío. Evaluaremos todo lo que haya podido realizar en el tiempo que indicamos que pensamos puede ser resuelto.
 
 * Antes de comenzar a programar
 
     - Realizar un `fork` de este repositorio.
-    - Crear un `branch` en su `fork` (a partir de la rama master de éste repositorio) utilizando su nombre de usuario.
+    - Crear un `branch` en su `fork` (a partir de la rama `master` de este repositorio) utilizando su nombre de usuario.
 
 * Al finalizar
 
-    - Crear un `pull-request` a la rama `master` de éste repositorio, desde el `branch` con su nombre de usuario.
+    - Crear un `pull-request` a la rama `master` de este repositorio, desde el `branch` con su nombre de usuario.
 
 ## Ejercicio práctico
 
 ### Objetivo
 
-Crear una aplicación utilizando la tecnología web de **_su elección_** que ayude a obtener una lista de usuarios y muestre la información de sus perfiles, explotando el API Rest pública de GitHub https://api.github.com/search/users.
+Crear una aplicación utilizando la tecnología web de **_su elección_** que ayude a obtener una lista de usuarios y muestre la información de sus perfiles, explotando las APIs ReST públicas de GitHub y GitLab.
 
 > NOTA: Se privilegiarán a los candidatos que utilicen el ecosistema **[Vue.js](https://vuejs.org)**.
 
@@ -44,19 +42,19 @@ Crear una aplicación utilizando la tecnología web de **_su elección_** que ay
 
 1. La aplicación debe cumplir con los siguientes **requisitos funcionales:**
 
-    - Incluír un campo de entrada texto y un botón, para que se pueda capturar el usuario y recuperar la información utilizando el API anteriormente indicada.
+    - Incluír un campo de entrada texto, un selector y un botón, para que se pueda capturar el usuario y recuperar la información utilizando las APIs anteriormente indicadas.
 
-    - Mostrar los primeros 10 usuarios del resultado de la búsqueda, incluyendo su nombre de usuario (`'user.login'`) y el id (`'user.id'`) de cada registro.
+    - Incluir un validador que verifique que el texto de búsqueda de usuarios sea de un mínimo de 4 caracteres, y otro que NO permita realizar la búsqueda de la palabra **"osana-salud"** (sin las comillas).
 
-    - Convertir cada perfil de usuario en un enlace, para que al hacer clic en cada registro, navegue a una ruta que incluya la propiedad `'user.login'` como parámetro.
+    - Mostrar los primeros 5 usuarios del resultado de la búsqueda (de cada servicio), incluyendo su id, nombre de usuario y el servicio al que corresponde.
 
-    - Crear un componente independiente en el que se lea el parámetro de la URL y, a continuación, obtenga los datos de dicho usuario mediante la siguiente API: https://api.github.com/users/<USER_NAME>
+    - Convertir cada elemento de la lista anterior en un enlace, para que al hacer clic en cada registro, navegue a una ruta que incluya el nombre del servicio y el nombre de usuario.
+
+    - Crear un componente independiente en el que se proporcione el nombre del servicio, el nombre de usuario y, a continuación, obtenga los datos de dicho usuario mediante el API correspondiente.
 
     - Incluir la imagen del usuario (`'avatar_url'`) y alguna otra información (a su elección) en el componente.
 
-    - Incluir un validador que verifique que el texto de búsqueda de usuarios sea de un mínimo de 4 caracteres, y otro que NO permita realizar la búsqueda de la palabra **"osana-salud"**.
-
-    - Integrar cualquier librería que la parezca conveniente, de ser necesario, y crear un gráfico de barras simple (o el que prefiera) para mostrar el número de seguidores de los 10 primeros usuarios.
+    - Integrar cualquier librería que la parezca conveniente, de ser necesario, y crear un gráfico de barras simple (o el que prefiera) para mostrar el número de seguidores del usuario en caso de que el API proporcione esta posibilidad.
 
 2. Es deseable, pero no necesario, que la aplicación cumpla con lo siquiente:
 
