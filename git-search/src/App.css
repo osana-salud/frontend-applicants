@@ -1,0 +1,18 @@
+.main {
+  background-color: #fafafa;
+  min-height: 100vh;
+  width: 100%;
+}
+.search {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5vh;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+}
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
