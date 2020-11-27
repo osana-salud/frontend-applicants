@@ -1,0 +1,15 @@
+.card-usuario{
+    margin: 1rem;
+    padding: 0.7rem;
+    background-color: #3f72af;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: grid;
+    color: white;
+    cursor: pointer;
+}
+
+.card-usuario:hover{
+    background-color: #5384bf;
+}

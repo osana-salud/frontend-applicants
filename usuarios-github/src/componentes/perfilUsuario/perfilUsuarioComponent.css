@@ -1,0 +1,45 @@
+.perfil-container{
+    display: grid;
+    grid-template-columns: minmax(160px, 1fr) minmax(1.5fr, 1.5fr) minmax(160px, 1fr);
+    grid-template-rows: 5rem 1fr 5rem;
+    grid-template-areas: ". . ." ". perfil ." ". . .";
+    height: 100vh;
+}
+
+.perfil{
+    border-radius: 0.7rem;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.65);
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.65);
+    grid-area: perfil;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas: "cabecera" "info";
+}
+
+.cabecera{
+    grid-area: "cabecera";
+    background-color: #3fc1c9;
+    border-top-right-radius: 0.7rem;
+    border-top-left-radius: 0.7rem;
+}
+
+.info{
+    grid-area: "info";
+    padding-top: 3rem; 
+    border-radius: 0.7rem;
+    text-align: center;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    background-color: #f9f7f7;
+}
+
+.avatar{
+    border-radius: 0.7rem;
+    width: 10rem;
+    border:1px solid grey;
+    position: absolute;
+    bottom: 55%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border: 2px solid white;
+}

@@ -1,0 +1,48 @@
+html{
+    font-size: 15px;
+    background-color: #f9f7f7;
+}
+
+.container{
+    width: 100%;
+    display: grid;
+    grid-template-rows: 10rem 1fr;
+    grid-template-areas: "busqueda" "resultados";
+}
+
+.busqueda{
+    margin: 1rem;
+    margin-bottom: 0;
+    border-top-left-radius: 0.7rem;
+    border-top-right-radius: 0.7rem;
+    grid-area: "busqueda";
+    text-align: center;
+    background-color: #3fc1c9;
+}
+
+.resultados-container{
+    text-align: center;
+    border-bottom-left-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem;
+    border: 5px solid black;
+    margin: 0 1rem 1rem 1rem;
+}
+
+input{
+    width: 20rem;
+    height: 1.5rem;
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+}
+
+button{
+    width: 5rem;
+    height: 1.9rem;
+    background-color: #4f7197   ;
+    border-radius: 0.5rem;
+}
+
+button:hover{
+    background-color: #6e96c4;
+    cursor: pointer;
+}
