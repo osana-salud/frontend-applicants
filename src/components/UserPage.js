@@ -70,7 +70,7 @@ export default function UserPage() {
       <div className="m-t center-text">
         <span>Id: {state.user.id}</span>
       </div>
-      {followers ? (
+      {followers.length > 0 ? (
         <Bar
           className="chart"
           data={{
