@@ -10,7 +10,7 @@ export const SearchForm = () => {
   const { loading } = useSelector(({ users }) => users);
   const handleSearch = (e) => {
     e.preventDefault();
-    if (query.trim().length > 3 && query !== "osana_salud") {
+    if (query.trim().length > 3 && query !== "osana-salud") {
       dispatch(users_SearchByName(query));
     } else {
       setIsInvalid(true);
