@@ -1,0 +1,22 @@
+.error-message {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: var(--fs-sl);
+  color: var(--tiny-gray);
+  font-family: var(--ff-open-sans);
+  text-align: center;
+  width: 90%;
+}
+
+.error-message h2 {
+  max-width: 640px;
+  text-align: center;
+}
+
+.error-message svg {
+  width: 120px;
+  fill: var(--tiny-gray);
+  height: 120px;
+  margin-bottom: -10px;
+}

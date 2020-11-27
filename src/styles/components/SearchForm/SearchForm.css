@@ -1,0 +1,80 @@
+.form-wrapper,
+.form-wrapper .form,
+.form-wrapper button {
+  align-items: center;
+  display: flex;
+}
+
+.form-wrapper {
+  flex-direction: column;
+  font-family: var(--ff-open-sans);
+  padding: 16px 0;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  z-index: 20;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--white);
+}
+
+.form-wrapper h1 {
+  font-size: var(--fs-sl);
+  color: var(--primary-black);
+  font-weight: var(--fw-bold);
+  margin-bottom: 18px;
+}
+
+.form-wrapper .form {
+  justify-content: center;
+  align-items: stretch;
+  width: 90%;
+  max-width: 640px;
+}
+
+.form-wrapper label,
+.form-wrapper input {
+  width: 100%;
+}
+
+.form-wrapper input {
+  font-family: var(--ff-open-sans);
+  color: var(--primary-black);
+  font-size: var(--fs-s);
+  border: 2px solid var(--primary-gray);
+  border-right: none;
+  padding: 12px;
+  border-radius: 6px 0 0 6px;
+}
+
+.form-wrapper input:focus {
+  outline: none;
+}
+
+.form-wrapper button {
+  justify-content: center;
+  padding: 8px 20px;
+  background-color: var(--primary-black);
+  border-radius: 0 6px 6px 0;
+}
+
+.form-wrapper button svg {
+  height: 20px;
+  width: 20px;
+  fill: var(--white);
+}
+
+.form-wrapper input:disabled,
+.form-wrapper button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.form-wrapper .form.invalid input {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.form-wrapper .form.invalid input::placeholder {
+  color: var(--danger);
+}

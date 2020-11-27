@@ -1,0 +1,26 @@
+/* Base & Reset styles */
+@import "./base/reset.css";
+
+/* Fonts */
+@import "./fonts/fonts.css";
+
+/* Settings & Variables */
+@import "./settings/settings.css";
+
+/* Components */
+
+/* Search Form */
+@import "./components/SearchForm/SearchForm.css";
+
+/* User List */
+@import "./components/UsersList/UsersList.css";
+
+/* User Details & User Card */
+@import "./components/UserDetails/UserDetails.css";
+@import "./components/UserDetails/UserCard.css";
+
+/* Loading Spinner */
+@import "./components/LoadingSpinner/LoadingSpinner.css";
+
+/* Error Message */
+@import "./components/ErrorMessage/ErrorMessage.css";

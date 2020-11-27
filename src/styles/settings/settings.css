@@ -1,0 +1,29 @@
+:root {
+  /* Font Sizes */
+  --fs-ss: 12px;
+  --fs-s: 16px;
+  --fs-sl: 22px;
+  --fs-l: 30px;
+  --fs-m: 40px;
+  --fs-x: 52px;
+
+  /* Font Family  */
+  --ff-open-sans: "Open Sans", Helvetica, sans-serif;
+
+  /* Colours */
+  --primary-black: #222831;
+  --primary-gray: #686d76;
+  --tiny-gray: #fdfdfd;
+  --dark-cyan: hsl(185, 75%, 39%);
+  --white: #ffffff;
+  --danger: #ec5858;
+
+  /* Box Shadow */
+  --box-shadow: 0 10px 40px -10px rgba(0, 64, 128, 0.2);
+
+  /* Font Weights */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+}
