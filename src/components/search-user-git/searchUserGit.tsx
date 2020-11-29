@@ -10,8 +10,8 @@ import * as repositoryActions from "../../actions/repository.action";
 import { ReducersStates } from "../../reducers/rootReducer";
 import { nameRepository } from "../../reducers/repository.reducer";
 import { Status } from "../../services/http";
-// import { Redirect } from "react-router-dom";
-// import { localPath } from "../../constantes";
+import { Redirect } from "react-router-dom";
+import { localPath } from "../../constantes";
 
 import "./searchUserGit.css";
 
@@ -84,7 +84,7 @@ class SearchUserGit extends Component<IProps, IState> {
   };
   render() {
     if (this.state.toLinkUserDetail) {
-      // return <Redirect to={`${localPath.USER_DETAIL}/${this.state.idUser}`} />;
+      return <Redirect to={`${localPath.USER_DETAIL}/${this.state.idUser}`} />;
     }
     return (
       <div>
