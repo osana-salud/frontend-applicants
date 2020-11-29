@@ -1,0 +1,32 @@
+.overlay{
+  background: rgba(134, 134, 134, 0.7);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index:2;
+  display: none;
+}
+.overlay.is-active{
+  background: rgba(134, 134, 134, 0.7);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index:2;
+  display: block;
+}
+input.is-active {
+  position: relative;
+  z-index:3;
+}
+#divUserName:nth-child(),
+#userName,
+#user,
+#repository,
+button {
+  position: relative;
+  z-index: 3;
+}
