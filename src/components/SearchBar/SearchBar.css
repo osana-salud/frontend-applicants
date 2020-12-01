@@ -50,9 +50,8 @@ input:-moz-placeholder {
 
 .search-error {
   position: absolute;
-  width: 85%;
   margin-top: 3px;
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 15px;
   box-shadow: 0 0 5px 0 red;
   font-weight: bold;
