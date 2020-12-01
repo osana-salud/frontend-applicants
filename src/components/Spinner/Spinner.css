@@ -1,0 +1,18 @@
+.spinner {
+  width: fit-content;
+  height: fit-content;
+}
+.spinner img {
+  margin-top: 100px;
+  height: 100px;
+  animation: spinner 1.5s linear infinite;
+}
+
+@keyframes spinner {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(359deg);
+  }
+}

@@ -1,0 +1,40 @@
+.home-view {
+  min-height: 100vh;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #444;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 20%,
+    rgb(228, 227, 227) 100%
+  );
+}
+
+.cards-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-size: 2rem;
+  color: inherit;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+@media only screen and (min-width: 992px) {
+  .cards-container {
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}

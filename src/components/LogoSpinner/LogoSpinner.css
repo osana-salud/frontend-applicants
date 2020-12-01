@@ -1,0 +1,34 @@
+.logo-spinner {
+  height: 150px;
+  width: 150px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: spin-logo-y 3s linear infinite;
+}
+
+.logo-spinner img {
+  height: 100%;
+  position: absolute;
+}
+
+.img-front {
+  backface-visibility: hidden;
+  background-color: white;
+}
+
+.img-back {
+  transform: rotateY(180deg);
+}
+
+.logo-spinner:hover {
+  transform: rotateY(180deg);
+}
+
+@keyframes spin-logo-y {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(359deg);
+  }
+}
