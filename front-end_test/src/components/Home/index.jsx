@@ -16,9 +16,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Swal from 'sweetalert2'
 import { useStyles } from './styles.js';
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
-export default function Home() {
+export default function Home(props) {
     const classes = useStyles();
+    const history = useHistory();
     const [api, setApi] = useState('');
     const [query, setQuery] = useState('');
     const [list, setList] = useState([]);
@@ -41,7 +43,7 @@ export default function Home() {
 
     const handleSearch = async (event) => {
         event.preventDefault();
-        if(query === 'osana-salud') {
+        if (query === 'osana-salud') {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
@@ -69,6 +71,14 @@ export default function Home() {
             })
         }
     };
+
+    const viewUser = async (id) => {
+        let user = list.filter(item => item.id === id)
+        let data = user[0];
+        data.api = api;
+        await props.getUser(data);
+        history.push(`/user/${id}`);
+    }
 
     return (
         <div>
@@ -102,7 +112,15 @@ export default function Home() {
                 <div >
                     <List className={classes.demo}>
                         {list.map(item =>
-                            <ListItem key={item.id} className={classes.item}>
+                            <ListItem
+                                key={item.id}
+                                value={item.id}
+                                className={classes.item}
+                                onClick={(event) => {
+                                    event.preventDefault();
+                                    viewUser(item.id);
+                                }
+                                }>
                                 <ListItemAvatar>
                                     <Avatar>
                                         <img src={item.avatar_url} alt='user avatar' className={classes.avatar} />
