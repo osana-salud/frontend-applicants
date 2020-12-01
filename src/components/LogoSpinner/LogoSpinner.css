@@ -9,18 +9,14 @@
 .logo-spinner img {
   height: 100%;
   position: absolute;
+  backface-visibility: hidden;
 }
 
 .img-front {
-  backface-visibility: hidden;
   background-color: white;
 }
 
 .img-back {
-  transform: rotateY(180deg);
-}
-
-.logo-spinner:hover {
   transform: rotateY(180deg);
 }
 
