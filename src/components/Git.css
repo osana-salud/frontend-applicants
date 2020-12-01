@@ -1,0 +1,29 @@
+.navbar{
+  padding: 15px;
+  background-color:  rgb(184, 76, 6  ) ;
+  text-align: center;
+  border-radius: 15px;
+  margin: auto;
+}
+
+.search{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.card{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.dropdown{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+
+
+
+
