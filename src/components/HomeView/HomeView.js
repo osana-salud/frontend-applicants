@@ -20,8 +20,8 @@ export default function HomeView() {
 
       {!searchMade ? null : users.length > 0 ? (
         <div className="cards-container">
-          {users.map((user) => {
-            return <UserCard user={user} />;
+          {users.map((user, i) => {
+            return <UserCard key={i} user={user} />;
           })}
         </div>
       ) : (

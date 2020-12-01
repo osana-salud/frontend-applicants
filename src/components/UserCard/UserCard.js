@@ -15,7 +15,6 @@ export default function UserCard(props) {
 
   const handleOpenInfo = (user) => {
     dispatch(setUserInfo(user));
-    console.log(user);
     history.push(`/user-info/${service}/${username}`);
   };
 

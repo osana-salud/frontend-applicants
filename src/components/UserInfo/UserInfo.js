@@ -49,7 +49,7 @@ export default function UserInfo() {
             {location ? (
               <div className="location">
                 <span role="img">
-                  <i class="fas fa-map-pin fa-xs"></i>
+                  <i className="fas fa-map-pin fa-xs"></i>
                 </span>
                 <span>{location}</span>
               </div>

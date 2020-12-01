@@ -11,9 +11,7 @@ export const setUsers = (input) => {
 };
 
 export const setUserInfo = (user) => {
-  console.log("DISPATCHING USER INFO");
   return async (dispatch) => {
-    console.log(user);
     dispatch({ type: "SET_USER_INFO", payload: user });
   };
 };
