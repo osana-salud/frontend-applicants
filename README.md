@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Prueba Técnica - Programador Front-end
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+El presente documento define un ejercicio práctico y las condiciones de evaluación para los postulantes a **_programador Front-end_** de **Osana Salud**.
 
-## Available Scripts
+## Introducción
 
-In the project directory, you can run:
+Ésta guía contiene una serie de requerimientos de un Caso Práctico, que busca evaluar las capacidades técnicas del candidato con respecto a las principales funciones y responsabilidades que se requieren dentro del área de Desarrollo de Tecnología de **_Osana Salud_**.
 
-### `npm start`
+## Modo de evaluación
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+El desafío está pensado para resolverse en un máximo de **3 (tres) horas** por lo que recomendamos emplear como máximo ese tiempo y enviar todo lo que pueda para su evaluación.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Una vez realizada la entrega, coordinaremos un llamado para analizar algunos aspectos sobre la metodología de trabajo, entre otros.
 
-### `npm test`
+Haremos especial hincapié en lo siguiente:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  * Creatividad para resolver los requerimientos
+  * Metodología de trabajo
+  * Calidad del código (estructura y buenas prácticas)
+  * Familiaridad con Frameworks y plataformas de desarrollo.
 
-### `npm run build`
+## Notas
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Antes de comenzar a programar
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    - Realizar un `fork` de este repositorio.
+    - Crear un `branch` en su `fork` (a partir de la rama `master` de este repositorio) utilizando su nombre de usuario.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Al finalizar
 
-### `npm run eject`
+    - Crear un `pull-request` a la rama `master` de este repositorio, desde el `branch` con su nombre de usuario.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Ejercicio práctico
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Objetivo
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Crear una aplicación utilizando la tecnología web de **_su elección_** que ayude a obtener una lista de usuarios y muestre la información de sus perfiles, explotando las APIs ReST públicas de GitHub y GitLab.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+> NOTA: Se privilegiarán a los candidatos que utilicen el ecosistema **[Vue.js](https://vuejs.org)**.
 
-## Learn More
+### Requerimientos generales
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. La aplicación debe cumplir con los siguientes **requisitos funcionales:**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    - Incluír un campo de entrada texto, un selector y un botón, para que se pueda capturar el usuario y recuperar la información utilizando las APIs anteriormente indicadas.
 
-### Code Splitting
+    - Incluir un validador que verifique que el texto de búsqueda de usuarios sea de un mínimo de 4 caracteres, y otro que NO permita realizar la búsqueda de la palabra **"osana-salud"** (sin las comillas).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    - Mostrar los primeros 5 usuarios del resultado de la búsqueda (de cada servicio), incluyendo su id, nombre de usuario y el servicio al que corresponde.
 
-### Analyzing the Bundle Size
+    - Convertir cada elemento de la lista anterior en un enlace, para que al hacer clic en cada registro, navegue a una ruta que incluya el nombre del servicio y el nombre de usuario.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    - Crear un componente independiente en el que se proporcione el nombre del servicio, el nombre de usuario y, a continuación, obtenga los datos de dicho usuario mediante el API correspondiente.
 
-### Making a Progressive Web App
+    - Incluir la imagen del usuario (`'avatar_url'`) y alguna otra información (a su elección) en el componente.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    - Integrar cualquier librería que la parezca conveniente, de ser necesario, y crear un gráfico de barras simple (o el que prefiera) para mostrar el número de seguidores del usuario en caso de que el API proporcione esta posibilidad.
 
-### Advanced Configuration
+2. Es deseable, pero no necesario, que la aplicación cumpla con lo siquiente:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    - Interfaz y diseño intuitivo y amigable
+    - Experiencia de usuario (mensajes de error, etc)
+    - Diseño responsivo
+    - Despliegue de la misma en un servicio público
+    - Que sea una aplicación auto-instalable (PWA)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> NOTA: Cualquier extra que considere, en base a los requisitos funcionales, serán tomados muy en cuenta.
