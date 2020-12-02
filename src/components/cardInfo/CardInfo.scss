@@ -1,0 +1,156 @@
+@import '../../scss/mixins.scss';
+
+.header-card-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 200px;
+    @include breakpoint-tablet {
+        font-size: 35px;
+        height: 150px;
+    }
+    @include breakpoint-tablet-desktop {
+        flex-wrap: nowrap;
+        height: 100px;
+    }
+    .btn-card-info {
+        background-color: #ffffff;
+        border: none;
+        border-radius: 3px;
+        color: white;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
+        margin-top: 5px;
+        padding: 13px 0;
+        outline: none;
+        transition: all .2s linear;
+        width: 100%;
+        @include breakpoint-tablet {
+            font-size: 22px;
+            padding: 20px 0;
+        }
+        @include breakpoint-tablet-desktop {
+            width: 40%;
+        }
+        @include breakpoint-desktop-1 {
+            font-size: 16px;
+            width: 30%;
+        }
+        @include breakpoint-desktop-3 {
+            font-size: 16px;
+            padding: 15px 0;
+            width: 20%;
+        }
+        &:hover {
+            background-color: darken(#ffffff, 5);
+        }
+    }
+}
+
+.container-card-info {
+    padding: 50px 0;
+    @include breakpoint-tablet {
+        padding: 70px;
+    }
+    .card-info {
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        display: flex;
+        flex-wrap: wrap;
+        height: auto;
+        margin: 0 auto;
+        width: 80%; 
+        @include breakpoint-tablet {
+            width: 70%;
+        }
+        @include breakpoint-tablet-desktop {
+            width: 50%;
+        }
+        @include breakpoint-desktop-1 {
+            width: 100%;
+            flex-wrap: nowrap;
+        }
+        @include breakpoint-desktop-2 {
+            width: 80%;
+        }
+        @include breakpoint-desktop-3 {
+            width: 50%;
+        }
+        .card-info-img {
+            height: auto;
+            padding: 20px;
+            width: 100%; 
+            @include breakpoint-desktop-1 {
+                width: 40%;
+            }
+            img {
+                width: 100%;
+            }
+        }
+        .card-info-text {
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            height: auto;
+            overflow: hidden;
+            padding: 0 15px 20px;
+            text-overflow: ellipsis;
+            width: 100%;
+            @include breakpoint-desktop-1 {
+                width: 60%;
+            }
+            h1 {
+                font-size: 35px;
+                margin: 0;
+                overflow: hidden;
+                padding-bottom: 9px;
+                text-overflow: ellipsis;
+                text-transform: capitalize;
+                @include breakpoint-desktop-3 {
+                    font-size: 25px;
+                }
+                img {
+                    width: 13%;
+                    @include breakpoint-desktop-1 {
+                        width: 10%;
+                    }
+                }
+            }
+            p {
+                font-size: 23px;
+                margin: 3px 0;
+                @include breakpoint-desktop-3 {
+                    font-size: 16px;
+                }
+            }
+            a {
+                background-color: teal;
+                border-radius: 3px;
+                color: white;
+                cursor: pointer;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 23px;
+                margin-top: 10px;
+                padding: 16px 0;
+                outline: none;
+                text-align: center;
+                text-decoration: none;
+                transition: all .2s linear;
+                width: 100%;
+                @include breakpoint-desktop-1 {
+                    width: 40%;
+                }
+                @include breakpoint-desktop-3 {
+                    font-size: 13px;
+                    padding: 8px 0;
+                    width: 30%;
+                }
+                &:hover {
+                    background-color: darken( teal, 5);
+                }
+            }
+        }
+    }
+}

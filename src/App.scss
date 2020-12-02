@@ -1,0 +1,133 @@
+@import './scss/mixins.scss';
+
+header {
+    align-items: center;
+    background-color: teal;
+    color: white;
+    display: flex;
+    font-size: 30px;
+    font-weight: bold;
+    height: 100px;
+    padding: 10px;
+    @include breakpoint-mobile-2 {
+        padding: 10px 20px;
+    }
+    @include breakpoint-desktop-1 {
+        padding: 0 30px;
+    }
+}
+
+.principal-container {
+    height: calc(100vh - 110px);
+    overflow: auto;
+    padding: 30px 10px;
+    @include breakpoint-mobile-2 {
+        padding: 30px 20px;
+    }
+    @include breakpoint-tablet {
+        padding: 40px 20px;
+    }
+    @include breakpoint-desktop-1 {
+        height: calc(100vh - 220px);
+        padding: 60px 100px;
+    }
+    @include breakpoint-desktop-2 {
+        height: calc(100vh - 220px);
+        padding: 60px 150px;
+    }
+    @include breakpoint-desktop-3 {
+        height: calc(100vh - 220px);
+        padding: 60px 30px;
+    }
+    h1 {
+        font-size: 20px;
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
+        @include breakpoint-tablet {
+            width: 80%;
+        }
+        @include breakpoint-tablet-desktop {
+            width: 60%;
+        }
+        @include breakpoint-desktop-3 {
+            width: 40%;
+        }
+    }
+    .title-card-list {
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 30px auto 50px;
+        width: 100%;
+        @include breakpoint-tablet {
+            width: 80%;
+        }
+        @include breakpoint-tablet-desktop {
+            width: 60%;
+        }
+        @include breakpoint-desktop-1 {
+            flex-wrap: nowrap;
+            width: 80%;
+        }
+        @include breakpoint-desktop-3 {
+            width: 60%;
+        }
+        input, select {
+            border: 1px solid rgba(0,0,0,.250);
+            border-radius: 3px;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            padding: 15px 13px 15px 13px;
+            width: 100%;
+            @include breakpoint-desktop-1 {
+                width: 40%;
+            }
+            @include breakpoint-desktop-3 {
+                font-size: 14px;
+                padding: 5px 13px 5px 13px;
+            }
+            &:focus {
+                outline: 1px solid rgba(0,0,0,.2);
+            }
+        }
+        select {
+            margin: 15px 0;
+            @include breakpoint-desktop-1 {
+                margin: 0 5px;
+            }
+            @include breakpoint-desktop-3 {
+                margin: 0 3px;
+            }
+        }
+        button {
+            background-color: teal;
+            border: none;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            margin: 0 0 12px;
+            outline: none;
+            padding: 15px 0;
+            transition: all .2s linear;
+            width: 100%;
+            @include breakpoint-desktop-1 {
+                margin: 0 3px 0;
+                width: 18%;
+            }
+            @include breakpoint-desktop-3 {
+                font-size: 14px;
+            }
+            &:hover {
+                background-color: darken( teal, 5);
+            }
+        }
+    }
+}

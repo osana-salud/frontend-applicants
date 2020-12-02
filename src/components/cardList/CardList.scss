@@ -1,0 +1,48 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 10px 0 0;  
+    figure {
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        box-sizing: border-box;
+        height: auto;
+        margin: 15px;
+        padding: 10px; 
+        position: relative;
+        width: 200px;
+        .figure-img {
+            width: 100%;
+        }
+        figcaption {
+            .figcaption-title {
+                font-size: 15px;
+                margin: 5px 0;
+            }
+            .figcaption-p {
+                font-size: 13px;
+                margin: 0               
+            }
+        }
+        .btn-card-list {
+            background-color: teal;
+            border: none;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            margin-top: 5px;
+            padding: 8px 0;
+            outline: none;
+            transition: all .2s linear;
+            width: 100%;
+            &:hover {
+                background-color: darken( teal, 5);
+            }
+        }
+    }   
+}

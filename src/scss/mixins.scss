@@ -1,0 +1,36 @@
+//Screen Sizes 
+@mixin breakpoint-mobile-2 {
+    @media (min-width: 414px) {
+        @content;
+    }
+}
+
+@mixin breakpoint-tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin breakpoint-tablet-desktop {
+    @media (min-width: 955px) {
+        @content;
+    }
+}
+
+@mixin breakpoint-desktop-1 {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin breakpoint-desktop-2 {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin breakpoint-desktop-3 {
+    @media (min-width: 1300px) {
+        @content;
+    }
+}
