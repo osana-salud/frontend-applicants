@@ -20,13 +20,16 @@ Este proyecto se inicio con [Create React App](https://github.com/facebook/creat
 
 ## Features
 
-- Home
+### Home
+
 ![Home](home.png)
 
-- Resultado 1
+### Resultado 1
+
 ![resultado](resultado.png)
 
--Resultado 2
+### Resultado 2
+
 ![resultado2](resultado2.png)
 
 ## Authors

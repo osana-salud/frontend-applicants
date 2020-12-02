@@ -80,7 +80,7 @@ const Home = () => {
             <form>
                 <input ref={textInput} type="text" onChange={inputValue} placeholder="Nombre de usuario" />
                 <select ref={select} defaultValue="-1" onChange={selectValue}>
-                    <option value="-1">Servicio</option>
+                    <option value="-1">Seleccionar servicio</option>
                     <option value="1">Github</option>
                     <option value="2">Gitlab</option>
                     <option value="3">Todos</option>
