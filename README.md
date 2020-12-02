@@ -1,6 +1,34 @@
-# Getting Started with Create React App
+## App React - Buscador de usuarios en Github y Gitlab 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto se inicio con [Create React App](https://github.com/facebook/create-react-app).<br />
+- App en vivo -> [App React - Buscador de usuarios en Github y Gitlab](https://react-app-github-gitlab.netlify.app/).<br />
+- La app esta disponible para Mobile, Table y Desktop.💖
+
+## Qué hace la app? 
+
+- Buscar usuarios en las apis de Github y Gitlab y, mostrar información
+
+## Con que fue creada la app? 
+
+- React Hooks
+  - UseState
+  - UseRef
+  - UseContext
+- React-router
+- Axios
+- SASS/scss
+
+## Features
+
+![Home](home.png)
+
+![resultado](resultado.png)
+
+![resultado2](resultado2.png)
+
+## Authors
+
+- Maria Gabriela Alarcon - [mariagaa993@gmail.com](mailto:mariagaa993@gmail.com)
 
 ## Available Scripts
 
