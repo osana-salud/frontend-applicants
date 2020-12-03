@@ -1,11 +1,14 @@
 .contenedor-usuario{
-    border: solid 1px red;
+    border: solid 1px #003459;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
     width: 80vw;
+    padding-bottom: 1rem;
+    border-radius: 1rem;
+    background: #ecf2fe;
 }
 
 .contenedor-usuario .content-datos-img{
@@ -22,4 +25,12 @@
 .contenedor-usuario .content-datos-img .content-img img{
     width: 100%;
     border-radius: 100%;
+}
+
+.contenedor-usuario .content-datos-img .content-datos a{
+    border: solid;
+    padding: 0.5rem;
+    background: #003459;
+    color: white;
+    border-radius: 8px;
 }
