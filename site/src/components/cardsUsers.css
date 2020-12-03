@@ -1,0 +1,22 @@
+.contenedor-usuarios{
+    margin: 0.5rem 1rem;
+    display: flex;
+    flex-direction: revert;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contenedor-usuarios a{
+    border: solid 1px #003459;
+    padding: 0.5rem 1.5rem;
+    width: 15rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    background: #ecf2fe;
+    cursor: pointer;
+}
+
+.contenedor-usuarios a div label{
+    font-weight: bold;
+}

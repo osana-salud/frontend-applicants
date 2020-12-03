@@ -1,0 +1,46 @@
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #00171F;
+    margin: 0 1rem;
+    padding: 1rem 0;
+}
+
+form label{
+    color: #00171F;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+}
+
+form input{
+    border: solid 1px #00171F;
+    padding: 0.5rem 1.5rem;
+    border-radius: 1rem;
+    background-color: #00A8E8;
+    opacity: 0.8;
+}
+
+form select{
+    padding: 0.5rem 1.5rem;
+    font-weight: bold;
+    border: solid 1px #00A8E8;
+    color: #00171F;
+    margin-bottom: 1rem;
+}
+
+form button{
+    border: none;
+    background: #003459;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    width: 10rem;
+    cursor: pointer;
+}
+
+.alerta-error{
+    color: red;
+}

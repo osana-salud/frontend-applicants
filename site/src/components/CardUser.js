@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
+import './cardUser.css';
+
 const CardUser = ({userName, service})=>{
 
     const [user, setUser] = useState('');
@@ -56,25 +58,32 @@ const CardUser = ({userName, service})=>{
     }, [])*/
 
     return(
-        <>
-            <h1>Card individual</h1>
-            <p>{service}</p>
-            <p>Estas buscando al usuario {
+        <div className="contenedor-usuario">
+            <h1>{
                 service == 'github'
                 ?
                 user.login
                 :
                 user.username
-            }</p>
-            <img src={user.avatar_url}></img>
-            <a href={
-                service=='github'
-                ?
-                user.html_url
-                :
-                user.web_url    
-            } target="_blank">Ir a su perfil</a>
-        </>
+            }</h1>
+            <div className='content-datos-img'>
+                <div className='content-img'>
+                    <img src={user.avatar_url}></img>
+                </div>
+                <div className='content-datos'>
+                <p>{service}</p>
+           
+           <a href={
+               service=='github'
+               ?
+               user.html_url
+               :
+               user.web_url    
+           } target="_blank">Ir a su perfil</a>
+      
+                </div>
+            </div>
+         </div>
     )
 }
 
