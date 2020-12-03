@@ -71,15 +71,15 @@ const CardUser = ({userName, service})=>{
                     <img src={user.avatar_url}></img>
                 </div>
                 <div className='content-datos'>
-                <p>{service}</p>
-           
-           <a href={
-               service=='github'
-               ?
-               user.html_url
-               :
-               user.web_url    
-           } target="_blank">Ir a su perfil</a>
+                <p>Servicio: {service}</p>
+                <p>{user.id}</p>
+                <a href={
+                    service=='github'
+                    ?
+                    user.html_url
+                    :
+                    user.web_url    
+                } target="_blank">Ir a su perfil</a>
       
                 </div>
             </div>
