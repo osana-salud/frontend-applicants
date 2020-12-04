@@ -5,13 +5,13 @@
     outlined
     color="indigo"
     :class="{padding_top:!$store.state.users.users.length}"
-    :label="`Buscar usuarios en ${source === 'github' ? 'GitHub' : 'GitLab'}`"
+    :label="`Buscar usuarios en ${$store.state.users.source === 'github' ? 'GitHub' : 'GitLab'}`"
     @keyup.enter.native="onSearch"
   >
     <template v-slot:prepend>
       <q-icon
-        :name="source === 'github' ? 'la la-github' : 'la la-gitlab'"
-        :class="source === 'github' ? 'text-black' : 'text-deep-orange'"
+        :name="$store.state.users.source === 'github' ? 'la la-github' : 'la la-gitlab'"
+        :class="$store.state.users.source === 'github' ? 'text-black' : 'text-deep-orange'"
       />
     </template>
     <template v-slot:append>
@@ -35,7 +35,7 @@
               flat
               icon="la la-github"
               label="GitHub"
-              :color="source === 'github' ? 'black' : 'grey-6'"
+              :color="$store.state.users.source === 'github' ? 'black' : 'grey-6'"
               @click="onChangeSource('github')"
             />
 
@@ -44,7 +44,7 @@
               flat
               icon="la la-gitlab"
               label="GitLab"
-              :color="source === 'gitlab' ? 'black' : 'grey-6'"
+              :color="$store.state.users.source === 'gitlab' ? 'black' : 'grey-6'"
               @click="onChangeSource('gitlab')"
             />
           </div>
@@ -82,14 +82,13 @@ export default {
     data(){
       return {
         showSourceSelector: false,
-        q: '',
-        source: 'github'
+        q: ''
       }
   },
 
   methods: {
     onChangeSource(source){
-      this.source = source
+      this.$store.dispatch('users/setSource', source)
       this.showSourceSelector = false
       this.onSearch();
     },
@@ -107,9 +106,21 @@ export default {
         return false;
       };
 
+      if( this.q === 'osana-salud' ) {
+        this.$q.notify({
+          message: "Esta busqueda está prohibida",
+          color: "red-6",
+          icon:'la la-warning',
+          group: false,
+          timeout: 1500
+        });
+
+        return false;
+      };
+
       this.$q.loading.show();
 
-      this.$emit('searchUsers', {q: this.q, source: this.source});
+      this.$emit('searchUsers', {q: this.q, source: this.$store.state.users.source});
 
       window.setTimeout( () => this.$q.loading.hide(), 300)
     }
