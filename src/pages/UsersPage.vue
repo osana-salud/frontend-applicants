@@ -42,12 +42,14 @@ export default {
           group: false,
           timeout: 1500
         });
+        this.$store.dispatch('users/setUsers', [])
         return false;
       }
 
+      this.$store.dispatch('users/setQ', e.q)
       this.$store.dispatch('users/setUsers', users)
     }
-  },
+  }
 }
 </script>
 

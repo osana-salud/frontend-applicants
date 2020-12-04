@@ -36,12 +36,12 @@
       <q-separator />
 
       <q-card-actions>
-        <q-btn flat color="primary" icon="la la-angle-left" label="Volver" @click="$router.back()"/>
-        <q-space />
+        <q-btn flat color="primary" icon="la la-angle-left" :label="$q.platform.is.mobile?'':'Volver'" @click="$router.back()"/>
+        <q-space v-show="!$q.platform.is.mobile"/>
         {{user.followers.total}} Seguidores
         <q-avatar
           class="q-ml-xs"
-          size="md"
+          :size="$q.platform.is.mobile?'xs':'md'"
           v-for="follower in user.followers.users"
           :key="follower.login"
           v-show="user.followers.total"

@@ -106,7 +106,7 @@ export default {
         return false;
       };
 
-      if( this.q === 'osana-salud' ) {
+      if( this.q.toLowerCase() === 'osana-salud' ) {
         this.$q.notify({
           message: "Esta busqueda está prohibida",
           color: "red-6",
@@ -124,6 +124,10 @@ export default {
 
       window.setTimeout( () => this.$q.loading.hide(), 300)
     }
+  },
+
+  mounted(){
+    this.q = this.$store.state.users.q.toString()
   }
 };
 </script>

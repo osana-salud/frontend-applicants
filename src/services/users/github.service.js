@@ -46,8 +46,6 @@ export default class Github {
       users: followersList.slice(0, 5)
     };
 
-    console.log(userInfo);
-
     return userInfo;
   }
 }

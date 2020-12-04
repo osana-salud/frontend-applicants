@@ -14,8 +14,6 @@ export default class Gitlab {
       }
     });
 
-    // console.log(request.data);
-
     const users = await request.data.slice(0, 5).map(user => ({
       id: user.id,
       name: user.username,
