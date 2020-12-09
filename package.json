@@ -1,0 +1,27 @@
+{
+  "name": "frontend-applicants",
+  "version": "1.0.0",
+  "description": "El presente documento define un ejercicio práctico y las condiciones de evaluación para los postulantes a **_programador Front-end_** de **Osana Salud**.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JPGallegos1/frontend-applicants.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JPGallegos1/frontend-applicants/issues"
+  },
+  "homepage": "https://github.com/JPGallegos1/frontend-applicants#readme",
+  "dependencies": {
+    "next": "^10.0.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
