@@ -3,13 +3,14 @@ import styled from "styled-components";
 import Card from '../components/Card';
 import SearchBar from '../components/SearchBar';
 import imageHome from '../assets/bg-home.jpg';
+import UserService from '../services/UserServices';
 
 const HomeStyled = styled.div`
 display: flex;
 flex-direction: column;
 width: 100%;
 min-width: 350px;
-height: 100vh;
+height: 100%;
 color: #005500;
 background-image: url(${imageHome});
 background-size: cover;
@@ -85,7 +86,39 @@ const Buttons = styled.button`
   outline: none;
 `;
 
+const ResultStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  heigth: 100%;
+  font-size: 2.2em;
+`;
+
+const AvatarStyle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  heigth: 100%;
+
+  & img {
+    border-radius: 300px;
+  }
+`;
+
+const InfoUser = styled.div`
+  font-size: 1.5em;
+`;
+
 function HomePage() {
+  const [input, setInput] = React.useState('');
+  const [result, setResult] = React.useState('');
+  const onSearch = async () => {
+    const r = await UserService.get(input);
+    setResult(r.data)
+  }
   return (
     <HomeStyled>
       <Wrapper>
@@ -93,14 +126,26 @@ function HomePage() {
           <h1>Bienvenido a su buscador!</h1>
         </StyleTitle>
         <InputContainer>
-          <SearchBar />
-          <Buttons>Buscar</Buttons>
+          <SearchBar value={input} onChange={(e) => setInput(e.target.value)} />
+          <Buttons onClick={onSearch}>Buscar</Buttons>
         </InputContainer>
         <SelectApi>
-          <option className="option" value="gitlab">GitLab</option>
+          <option className="option" value="gitlab">Github</option>
           <option className="option" value="github">Github</option>
         </SelectApi>
         <Card className="card-home">
+          <ResultStyle>
+            {result.login}
+          </ResultStyle>
+          <AvatarStyle>
+            <img src={result.avatar_url} alt="avatar" />
+          </AvatarStyle>
+          <InfoUser>
+            <div> Id: {result.id}</div>
+            <div> Name:  {result.login}</div>
+            <div> Type: {result.type}</div>
+            <div> Link: <a href={result.url}>{result.url}</a></div>
+          </InfoUser>
         </Card>
       </Wrapper>
     </HomeStyled>

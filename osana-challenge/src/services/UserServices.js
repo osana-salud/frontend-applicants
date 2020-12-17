@@ -6,9 +6,6 @@ const UserService = {
     (resolve,reject) => {
       API.get(USER_ENDPOINTS.LIST_USERS)
       .then(
-        res => res.json(data)
-      )
-      .then(
         data => resolve(data)
       )
       .catch(
@@ -16,12 +13,9 @@ const UserService = {
       )
     }
   ),
-  get: (id) => new Promise(
+  get: (username) => new Promise(
     (resolve,reject) => {
-      API.get(USER_ENDPOINTS.USER_DETAIL+id)
-      .then(
-        res => res.json(data)
-      )
+      API.get(USER_ENDPOINTS.USER_DETAIL+username)
       .then(
         data => resolve(data)
       )
