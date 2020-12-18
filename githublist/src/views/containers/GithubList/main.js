@@ -21,6 +21,8 @@ const GithubList = () => {
 
     const [name, setName] = useState('');
     const [userName, setUserName] = useState('');
+    const [service, setService] = useState('');
+    const [id, setID] = useState('');
     const [followers, setFollowers] = useState('');
     const [following, setFollowing] = useState('');
     const [repos, setRepos] = useState('');
@@ -37,9 +39,20 @@ const GithubList = () => {
         });
     }, [])
 
-    const setData = ({name, login, followers, following, public_repos, avatar_url}) => {
+    const setData = ({
+        name,
+        id,
+        login,
+        followers,
+        following,
+        public_repos,
+        avatar_url,
+        html_url
+    }) => {
         setName(name);
+        setID(id);
         setUserName(login);
+        setService(html_url);
         setFollowers(followers);
         setFollowing(following);
         setRepos(public_repos);
@@ -54,11 +67,11 @@ const GithubList = () => {
     }
 
     const handleSubmit = () => {
-        console.log('handleSubmit: ', userInput);
         !searchText && userInput !== 'osana-salud' && (
                 fetch(`https://api.github.com/users/${userInput}`)
                     .then(res => res.json())
                     .then(data => {
+                        console.log('data: ', data);
                         if (data.message)
                             setError(data.message) 
                         else { 
@@ -102,11 +115,18 @@ const GithubList = () => {
                                 src={ avatar }
                             />
                             <GithubListCardContent>
+                                {/* id, nombre de usuario y el servicio al que corresponde */}
                                 <Header>
-                                    { name }
+                                    Nombre: { name }
                                 </Header>
                                 <Header>
-                                    { userName }
+                                    ID: { id }
+                                </Header>
+                                <Header>
+                                    Nombre de usuario: { userName }
+                                </Header>
+                                <Header>
+                                    Servicio al que corresponde: { service }
                                 </Header>
                             </GithubListCardContent> 
                             <GithubListCardContent>
