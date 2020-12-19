@@ -3,20 +3,26 @@
 		
 		<el-row type="flex" justify="center">
 			<el-col :span="6">
-			<el-select class="total-width" v-model="api" placeholder="Seleccione una API">
-				<el-option
-					v-for="item in options"
-					:key="item.value"
-					:label="item.label"
-					:value="item.value">
-				</el-option>
-			</el-select>
+				<span>
+					Seleccione API a consultar
+				</span>
+				<el-select class="total-width" v-model="api" placeholder="Seleccione una API">
+					<el-option
+						v-for="item in options"
+						:key="item.value"
+						:label="item.label"
+						:value="item.value">
+					</el-option>
+				</el-select>
 			</el-col>
 		</el-row>
 
 		<el-row type="flex" justify="center">
 			<el-col :span="6">
-					<el-input class="total-width" placeholder="Escriba un usuario" v-model="search_info">
+				<span>
+					Buscar usuario
+				</span>
+				<el-input class="total-width" placeholder="Escriba un usuario" v-model="search_info">
 			</el-input>
 			</el-col>
 		
@@ -26,7 +32,7 @@
 		<el-row type="flex" justify="center">
 			<el-col :span="6">
 			<el-button class="total-width" @click="searchUsers">
-				Buscar Usuarios
+				Buscar
 			</el-button>
 			</el-col>
 		</el-row>
@@ -145,7 +151,7 @@ export default {
 
 <style>
 body{
-	font-family: 'Libre Baskerville';
+	font-family: Georgia;
 }
 .total-width{
 	width: 100%;
