@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Prueba Técnica - Programador Front-end
 
 El presente documento define un ejercicio práctico y las condiciones de evaluación para los postulantes a **_programador Front-end_** de **Osana Salud**.
@@ -66,3 +67,25 @@ Crear una aplicación utilizando la tecnología web de **_su elección_** que ay
 
 > NOTA: Cualquier extra que considere, en base a los requisitos funcionales, serán tomados muy en cuenta.
 
+=======
+# challenge_osana
+
+## Build Setup
+
+```bash
+# install dependencies
+$ npm install
+
+# serve with hot reload at localhost:3000
+$ npm run dev
+
+# build for production and launch server
+$ npm run build
+$ npm run start
+
+# generate static project
+$ npm run generate
+```
+
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+>>>>>>> 9e0d2d68a6925cfda2f630556d8ff0441855621f
