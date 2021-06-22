@@ -14,13 +14,13 @@ const routes = [
     component: Home,
   },
   {
-    path: '/github/:id',
+    path: '/github',
     name: 'SearchUserGitHub',
     props: true,
     component: SearchUserGitHub
   },
   {
-    path: '/gitlab/:id',
+    path: '/gitlab',
     name: 'SearchUserGitlab',
     component: SearchUserGitlab,
     props: true

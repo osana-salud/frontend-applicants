@@ -19,28 +19,23 @@
 		  	<div class="card">
 	  		  <div class="card-image">
 	  		    <figure class="image is-2by2">
-	  		      <img :src="this.$route.params.item.avatar_url" alt="Placeholder image">
+	  		      <img :src="avatar_url" alt="Placeholder image">
 	  		    </figure>
 	  		  </div>
 	  		  <div class="card-content">
 	  		    <div class="media">
-	  		      <!-- <div class="media-left">
-	  		        <figure class="image is-48x48">
-	  		          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-	  		        </figure>
-	  		      </div> -->
 	  		      <div class="media-content">
-	  		        <p class="title is-2">@{{ this.$route.params.item.name }}</p>
+	  		        <p class="title is-2">@{{ name }}</p>
 	  		      </div>
 	  		    </div>
 
 	  		    <div class="content">
 	  		    	<div class="columns">
 	  		    		<div class="column">
-	  		    			<a :href="'https://gitlab.com/users/' + this.$route.params.item.username" target="_blank" class="button is-link">Ver Perfil</a>
+	  		    			<a :href="'https://gitlab.com/users/' + username" target="_blank" class="button is-link">Ver Perfil</a>
 	  		    		</div>
 	  		    		<div class="column">
-	  		    			<a :href="'https://gitlab.com/users/' + this.$route.params.item.username + '/projects'" target="_blank" class="button is-link">Ver Repos</a>
+	  		    			<a :href="'https://gitlab.com/users/' + username + '/projects'" target="_blank" class="button is-link">Ver Repos</a>
 	  		    		</div>
 	  		    	</div>
 	  		    </div>
@@ -56,11 +51,11 @@
 	export default {
 		data() {
 			return {
-
+				avatar_url: this.$route.params.item.avatar_url,
+				username: this.$route.params.item.username,
+				name: this.$route.params.item.name
 			}
 		},
-
-		props: ['id'],
 
 		methods: {
 			back() {

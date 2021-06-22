@@ -19,28 +19,23 @@
 		  	<div class="card">
 	  		  <div class="card-image">
 	  		    <figure class="image is-2by2">
-	  		      <img :src="this.$route.params.item.avatar_url" alt="Placeholder image">
+	  		      <img :src="avatar_url" alt="Placeholder image">
 	  		    </figure>
 	  		  </div>
 	  		  <div class="card-content">
 	  		    <div class="media">
-	  		      <!-- <div class="media-left">
-	  		        <figure class="image is-48x48">
-	  		          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-	  		        </figure>
-	  		      </div> -->
 	  		      <div class="media-content">
-	  		        <p class="title is-2">@{{ this.$route.params.item.login }}</p>
+	  		        <p class="title is-2">@{{ login }}</p>
 	  		      </div>
 	  		    </div>
 
 	  		    <div class="content">
 	  		    	<div class="columns">
 	  		    		<div class="column">
-	  		    			<a :href="'https://github.com/' + this.$route.params.item.login" target="_blank" class="button is-link">Ver Perfil</a>
+	  		    			<a :href="'https://github.com/' + username" target="_blank" class="button is-link">Ver Perfil</a>
 	  		    		</div>
 	  		    		<div class="column">
-	  		    			<a :href="'https://github.com/' + this.$route.params.item.login + '?tab=repositories'" target="_blank" class="button is-link">Ver Repos</a>
+	  		    			<a :href="'https://github.com/' + username + '?tab=repositories'" target="_blank" class="button is-link">Ver Repos</a>
 	  		    		</div>
 	  		    	</div>
 	  		    </div>
@@ -54,17 +49,29 @@
 
 <script>
 	export default {
+		name: 'SearchuserGitHub',
 		data() {
 			return {
-
+				avatar_url: this.$route.params.item.avatar_url,
+				username: null,
+				login: null
 			}
 		},
 
-		props: ['id'],
+		created() {
+			this.getDataUserName();
+			this.getDataLogin();
+		},
 
 		methods: {
 			back() {
 				window.history.back();
+			},
+			getDataUserName() {
+				this.username = this.$route.params.item.login;
+			},
+			getDataLogin() {
+				this.login = this.$route.params.item.login;
 			}
 		}
 	};
